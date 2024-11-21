@@ -15,6 +15,7 @@ Ce projet est une démonstration de mes compétences en **intégration web**, de
 
 ## 📸 Demo & Liens 
 [*Lien vers démo en ligne*](https://positivus-demo.netlify.app)
+
 [*La maquette utilisé pour le développement*](https://www.figma.com/community/file/1230604708032389430/positivus-landing-page-design)
 
 ## Recommended IDE Setup
