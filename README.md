@@ -14,7 +14,7 @@ Ce projet est une démonstration de mes compétences en **intégration web**, de
 - **Animation et Interactivité** : Fluidité et UX soignée  
 
 ## 📸 Demo  
-*(lien vers démo en ligne)*
+[*Lien vers démo en ligne*](https://positivus-demo.netlify.app)
 
 ## Recommended IDE Setup
 
