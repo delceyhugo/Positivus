@@ -1,6 +1,20 @@
-# Positivus
+# Positivus | Un site vitrine responsive avec Vue.js 3
 
-This template should help get you started developing with Vue 3 in Vite.
+Ce projet est une démonstration de mes compétences en **intégration web**, de la conception à la publication, en passant par l'optimisation.  
+
+## ✨ Caractéristiques  
+- **Technologies utilisées** : Vue.js 3, Sass  
+- **Responsive Design** : Adapté à tous les écrans (mobile, tablette, desktop)  
+- **Performance optimisée** :  
+  - Score parfait **100/100** sur Lighthouse :  
+    - 🟢 Performance  
+    - 🟢 Accessibilité  
+    - 🟢 Meilleures Pratiques  
+    - 🟢 SEO  
+- **Animation et Interactivité** : Fluidité et UX soignée  
+
+## 📸 Demo  
+*(lien vers démo en ligne)*
 
 ## Recommended IDE Setup
 
