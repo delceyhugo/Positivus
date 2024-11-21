@@ -1,0 +1,137 @@
+// Fonts
+@import url('./fonts/fonts.css');
+
+
+// Variables
+:root {
+  --color-accent: #B9FF66;
+  --color-bg: #F3F3F3;
+  --color-dark: #191A23;
+  --color-black: #000000;
+  --font-family: "Space Grotesk", sans-serif;
+}
+// Breakpoints
+$small : 480px;
+$med : 768px;
+$large : 1280px;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+
+// Text Style
+#app{
+  h1, .h1{
+    font-family: var(--font-family);
+    font-size: 60px;
+    line-height: auto;
+    font-weight: 500;
+  }
+  h2, .h2{
+    font-family: var(--font-family);
+    font-size: 40px;
+    line-height: auto;
+    font-weight: 500;
+  }
+  h3, .h3{
+    font-family: var(--font-family);
+    font-size: 30px;
+    line-height: auto;
+    font-weight: 500;
+  }
+  h4, .h4{
+    font-family: var(--font-family);
+    font-size: 20px;
+    line-height: auto;
+    font-weight: 500;
+  }
+  p, a, label, input, textarea{
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: auto;
+    font-weight: 400;
+  }
+  @media screen and (max-width: $med) {
+    h1{
+      font-family: var(--font-family);
+      font-size: 43px; // Adjust as needed for mobile
+      line-height: auto;
+      font-weight: 500;
+    }
+    h2{
+      font-family: var(--font-family);
+      font-size: 36px; // Adjust as needed for mobile
+      line-height: auto;
+      font-weight: 500;
+    }
+    h3{
+      font-family: var(--font-family);
+      font-size: 26px; // Adjust as needed for mobile
+      line-height: auto;
+      font-weight: 500;
+    }
+    h4{
+      font-family: var(--font-family);
+      font-size: 18px; // Adjust as needed for mobile
+      line-height: auto;
+      font-weight: 500;
+    }
+    p, a, label, input, textarea{
+      font-family: var(--font-family);
+      font-size: 16px; // Adjust as needed for mobile
+      line-height: auto;
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+  }
+}
+
+
+// General
+
+body{
+  display: flex;
+  place-items: center;
+  background-color: #FFF;
+  #app {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10vw;
+
+    gap: 150px;
+    @media screen and (max-width: $large) {
+      padding: 0px;
+      &>*{
+        padding: 0px 5vw;
+        gap: 30px !important;
+      }
+    }
+    .no-padding{
+      padding: 0px !important;
+    }
+    img{
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  }
+  a{
+    cursor: pointer;
+    &:active{
+      transform: scale(0.95);
+    }
+    &:hover{
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+    }
+  }
+}
