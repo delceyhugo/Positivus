@@ -58,8 +58,9 @@ header{
             gap: 20px;
             li{
                 list-style: none;
+                position: relative;
                 a{
-                    padding: 0px 10px;
+                    padding: 5px 10px;
                     font-size: 20px;
                     line-height: 28px;
                     text-align: center;
@@ -67,11 +68,23 @@ header{
                     user-select: none;
                     text-decoration: none;
                     text-decoration-color: var(--color-accent);
-                    &:hover{
-                        text-decoration: underline;
-                        text-underline-offset: 4px;
-                        text-decoration-thickness: 3px;
-                        text-decoration-color: var(--color-accent);
+                    border-radius: 15px;
+                    &::after{
+                        z-index: -1;
+                        position: absolute;
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        top: 0px;
+                        left: 0px;
+                        transition: all 0.2s ease-in-out;
+                        border-radius: 15px;
+                        transform-origin: center;
+                        background-color: var(--color-accent);
+                        transform: scale(0);
+                    }
+                    &:hover::after{
+                        transform: scale(1.4);
                     }
                 }
             }

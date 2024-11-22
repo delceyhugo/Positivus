@@ -51,8 +51,8 @@ $large : 1280px;
                 justify-content: center;
                 list-style: none;
                 img{
-                    mix-blend-mode: luminosity;
                     pointer-events: none;
+                    filter: brightness(0);
                 }
             }
         }

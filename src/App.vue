@@ -12,23 +12,62 @@ import Testimonial from './components/TestimonialSlider.vue'
 import Contact from './components/Contact.vue'
 import Footer from './components/Footer.vue'
 
+const fromLeft = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('from-left', entry.isIntersecting);
+    entry.target.classList.toggle('to-left', !entry.isIntersecting);
+  })
+}, {threshold: .3})
+const fromRight = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('from-right', entry.isIntersecting);
+    entry.target.classList.toggle('to-right', !entry.isIntersecting);
+  })
+}, {threshold: .3})
+const fromTop = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('from-top', entry.isIntersecting);
+    entry.target.classList.toggle('to-top', !entry.isIntersecting);
+  })
+}, {threshold: .3})
+const fromBottom = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('from-bottom', entry.isIntersecting);
+    entry.target.classList.toggle('to-bottom', !entry.isIntersecting);
+  })
+}, {threshold: .3})
+const fromCenter = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('from-center', entry.isIntersecting);
+    entry.target.classList.toggle('to-center', !entry.isIntersecting);
+  })
+}, {threshold: .3})
+
+window.onload = () => {
+  document.querySelectorAll('.anim-from-left').forEach(el => fromLeft.observe(el))
+  document.querySelectorAll('.anim-from-right').forEach(el => fromRight.observe(el))
+  document.querySelectorAll('.anim-from-top').forEach(el => fromTop.observe(el))
+  document.querySelectorAll('.anim-from-bottom').forEach(el => fromBottom.observe(el))
+  document.querySelectorAll('.anim-from-center').forEach(el => fromCenter.observe(el))
+}
+
 </script>
 
 <template>
 
   <div id="LandingPage" class="no-padding">
-    <Header></Header>
+    <Header class="anim-from-top"></Header>
     <main>
       <div id="hero">
         <section>
-          <h1>Navigating the digital landscape for success</h1>
-          <p>Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
-          <img src="@/assets/hero-illustration.png" alt="Illustration of a megaphone">
-          <Button :type="'primary'">Book a consultation</Button>
+          <h1 class="anim-from-top">Navigating the digital landscape for success</h1>
+          <p class="anim-from-left">Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
+          <img class="anim-from-right" src="@/assets/hero-illustration.png" alt="Illustration of a megaphone">
+          <Button class="anim-from-left" :type="'primary'">Book a consultation</Button>
         </section>
       </div>
     </main>
-    <aside>
+    <aside class="anim-from-center">
       <Logotypes></Logotypes>
     </aside>
   </div>
@@ -37,16 +76,15 @@ import Footer from './components/Footer.vue'
       At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:
     </HeadingSub>
     <main>
-      <ServiceBlock :setup="{title: 'Search engine optimization', labelType: 'tertiary', linkType: 'secondary', linkColor: 3, cardColor: 'bg', img: 'loupe'}"></ServiceBlock>
-      <ServiceBlock :setup="{title: 'Pay-per-click advertising', labelType: 'secondary', linkType: 'secondary', linkColor: 3, cardColor: 'accent', img: 'click'}"></ServiceBlock>
-      <ServiceBlock :setup="{title: 'Social Media Marketing', labelType: 'secondary', linkType: 'secondary', linkColor: 4, cardColor: 'dark', img: 'screen'}"></ServiceBlock>
-      <ServiceBlock :setup="{title: 'Email Marketing', labelType: 'tertiary', linkType: 'secondary', linkColor: 3, cardColor: 'bg', img: 'letter'}"></ServiceBlock>
-
-      <ServiceBlock :setup="{title: 'Pay-per-click advertising', labelType: 'secondary', linkType: 'secondary', linkColor: 3, cardColor: 'accent', img: 'tab'}"></ServiceBlock>
-      <ServiceBlock :setup="{title: 'Social Media Marketing', labelType: 'tertiary', linkType: 'secondary', linkColor: 4, cardColor: 'dark', img: 'chart'}"></ServiceBlock>
+      <ServiceBlock class="anim-from-left" :setup="{title: 'Search engine optimization', labelType: 'tertiary', linkType: 'secondary', linkColor: 3, cardColor: 'bg', img: 'loupe'}"></ServiceBlock>
+      <ServiceBlock class="anim-from-right" :setup="{title: 'Pay-per-click advertising', labelType: 'secondary', linkType: 'secondary', linkColor: 3, cardColor: 'accent', img: 'click'}"></ServiceBlock>
+      <ServiceBlock class="anim-from-left" :setup="{title: 'Social Media Marketing', labelType: 'secondary', linkType: 'secondary', linkColor: 4, cardColor: 'dark', img: 'screen'}"></ServiceBlock>
+      <ServiceBlock class="anim-from-right" :setup="{title: 'Email Marketing', labelType: 'tertiary', linkType: 'secondary', linkColor: 3, cardColor: 'bg', img: 'letter'}"></ServiceBlock>
+      <ServiceBlock class="anim-from-left" :setup="{title: 'Pay-per-click advertising', labelType: 'secondary', linkType: 'secondary', linkColor: 3, cardColor: 'accent', img: 'tab'}"></ServiceBlock>
+      <ServiceBlock class="anim-from-right" :setup="{title: 'Social Media Marketing', labelType: 'tertiary', linkType: 'secondary', linkColor: 4, cardColor: 'dark', img: 'chart'}"></ServiceBlock>
     </main>
   </section>
-  <section id="CTA" class="no-padding">
+  <section id="CTA" class="no-padding anim-from-center">
     <div>
       <h3>Let's make things happen</h3>
       <p>Contact us today to learn more about how our digital marketing services can help your business grow and succeed online.</p>
@@ -58,19 +96,19 @@ import Footer from './components/Footer.vue'
     <HeadingSub :title="'Case Studies'">
       Explore Real-Life Exemples of Our Proven Digital Marketing Success through Our Case Studies
     </HeadingSub>
-    <CaseStudies></CaseStudies>
+    <CaseStudies class="anim-from-center"></CaseStudies>
   </section>
   <section id="WorkingProcess">
     <HeadingSub :title="'Our Working Process'">
       Step-by-Step Guide to Achieving Your Business Goals
     </HeadingSub>
     <main>
-      <ProcessBlock :title="'Consultation'" :number="'01'">During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.</ProcessBlock>
-      <ProcessBlock :title="'Research and Strategy Development'" :number="'02'">Once we have a clear understanding of your business, we will develop a comprehensive strategy for digital marketing that aligns with your goals.</ProcessBlock>
-      <ProcessBlock :title="'Implementation'" :number="'03'" >Once the strategy is finalized, we will implement the digital marketing campaign to drive traffic, engagement, and conversions.</ProcessBlock>
-      <ProcessBlock :title="'Monitoring and Optimization'" :number="'04'">We will monitor the campaign's performance and make adjustments as needed to optimize its effectiveness and reach your target audience.</ProcessBlock>
-      <ProcessBlock :title="'Reporting and Communication'" :number="'05'">We will provide regular updates on campaign progress, results, and any areas for improvement.</ProcessBlock>
-      <ProcessBlock :title="'Continual Improvement'" :number="'06'">We will continue to monitor and optimize the campaign to ensure it remains effective and relevant to your audience.</ProcessBlock>
+      <ProcessBlock class="anim-from-right" :title="'Consultation'" :number="'01'">During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.</ProcessBlock>
+      <ProcessBlock class="anim-from-left" :title="'Research and Strategy Development'" :number="'02'">Once we have a clear understanding of your business, we will develop a comprehensive strategy for digital marketing that aligns with your goals.</ProcessBlock>
+      <ProcessBlock class="anim-from-right" :title="'Implementation'" :number="'03'" >Once the strategy is finalized, we will implement the digital marketing campaign to drive traffic, engagement, and conversions.</ProcessBlock>
+      <ProcessBlock class="anim-from-left" :title="'Monitoring and Optimization'" :number="'04'">We will monitor the campaign's performance and make adjustments as needed to optimize its effectiveness and reach your target audience.</ProcessBlock>
+      <ProcessBlock class="anim-from-right" :title="'Reporting and Communication'" :number="'05'">We will provide regular updates on campaign progress, results, and any areas for improvement.</ProcessBlock>
+      <ProcessBlock class="anim-from-left" :title="'Continual Improvement'" :number="'06'">We will continue to monitor and optimize the campaign to ensure it remains effective and relevant to your audience.</ProcessBlock>
     </main>
 
   </section>
@@ -79,12 +117,12 @@ import Footer from './components/Footer.vue'
       Meet the skilled team behind our successful digital marketing strategies
     </HeadingSub>
     <main>
-      <TeamCard :setup="{name: 'John Smith', job: 'CEO and Founder', img: '1'}">10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy</TeamCard>
-      <TeamCard :setup="{name: 'Jane Dow', job: 'Director of Operations', img: '2'}">7+ years of experience in project management and team leadership. Strong organizational and communication skills</TeamCard>
-      <TeamCard :setup="{name: 'Mickael Brown', job: 'Senior CEO Specialist', img: '3'}">5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization</TeamCard>
-      <TeamCard :setup="{name: 'Emily Davis', job: 'PPC Manager', img: '4'}">3+ years of experience in paid search advertising. Skilled in campaign management and performance analysis</TeamCard>
-      <TeamCard :setup="{name: 'Brian White', job: 'Social Media Specialist', img: '5'}">4+ years of experience in social media marketing. Proficient in creating and scheduling content, analyzing metrics, and building engagement</TeamCard>
-      <TeamCard :setup="{name: 'Sarah Green', job: 'Content Creator', img: '6'}">2+ years of experience in writing and editing<br>Skilled in creating compelling, SEO-optimized content for various industries</TeamCard>
+      <TeamCard class="anim-from-center" :setup="{name: 'John Smith', job: 'CEO and Founder', img: '1'}">10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy</TeamCard>
+      <TeamCard class="anim-from-center" :setup="{name: 'Jane Dow', job: 'Director of Operations', img: '2'}">7+ years of experience in project management and team leadership. Strong organizational and communication skills</TeamCard>
+      <TeamCard class="anim-from-center" :setup="{name: 'Mickael Brown', job: 'Senior CEO Specialist', img: '3'}">5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization</TeamCard>
+      <TeamCard class="anim-from-center" :setup="{name: 'Emily Davis', job: 'PPC Manager', img: '4'}">3+ years of experience in paid search advertising. Skilled in campaign management and performance analysis</TeamCard>
+      <TeamCard class="anim-from-center" :setup="{name: 'Brian White', job: 'Social Media Specialist', img: '5'}">4+ years of experience in social media marketing. Proficient in creating and scheduling content, analyzing metrics, and building engagement</TeamCard>
+      <TeamCard class="anim-from-center" :setup="{name: 'Sarah Green', job: 'Content Creator', img: '6'}">2+ years of experience in writing and editing<br>Skilled in creating compelling, SEO-optimized content for various industries</TeamCard>
     </main>
     <footer>
       <Button>See all team</Button>
@@ -94,7 +132,7 @@ import Footer from './components/Footer.vue'
     <HeadingSub :title="'Testimonials'">
       Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services
     </HeadingSub>
-    <Testimonial></Testimonial>
+    <Testimonial class="anim-from-center"></Testimonial>
   </section>
   <section id="Contact">
     <HeadingSub :title="'Contact Us'">
@@ -103,7 +141,7 @@ import Footer from './components/Footer.vue'
     <Contact></Contact>
   </section>
   <section id="Footer">
-    <Footer></Footer>
+    <Footer class="anim-from-bottom"></Footer>
   </section>
 
 </template>
