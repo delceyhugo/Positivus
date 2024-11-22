@@ -42,7 +42,7 @@ import Button from './base/Button.vue'
 </template>
 
 
-<style lang='scss' scoped
+<style lang='scss' scoped>
 // Breakpoints
 $small : 480px;
 $med : 768px;
